@@ -17,4 +17,4 @@ Kullanıcıların SPSS veri setlerini (.sav) yükleyip analiz ettirebileceği, k
 
 ---
 **Geliştirici Hakkında:** Şevin Baş
-*İstatistiksel analiz ve veri madenciliği alanında çalışmalar yürüten, veriyi sadece analiz etmekle kalmayıp UI/UX prensipleriyle kullanılabilir ürünlere dönüştüren bir geliştirici ve tasarımcı. Kâr amacı gütmeyen organizasyonlardaki profesyonel deneyimlerinden aldığı ilhamla, topluma ve araştırmacılara fayda sağlayan erişilebilir araçlar üretmeye odaklanmaktadır.*
+*İstatistiksel analiz ve veri madenciliği alanında çalışmalar yürüten, veriyi sadece analiz etmekle kalmayıp UI/UX prensipleriyle kullanılabilir ürünlere dönüştüren bir geliştirici. Kâr amacı gütmeyen organizasyonlardaki profesyonel deneyimlerinden aldığı ilhamla, topluma ve araştırmacılara fayda sağlayan erişilebilir araçlar üretmeye odaklanmaktadır.*
