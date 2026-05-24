@@ -3,12 +3,10 @@ import google.generativeai as genai
 import pandas as pd
 import pyreadstat
 
-# ---------------------------------------------------------
-# 1. SAYFA TASARIMI VE ARAYÜZ YAPILANDIRMASI
-# ---------------------------------------------------------
-st.set_page_config(page_title="SPSS AI Asistan", page_icon="📊", layout="wide")
 
-# ÖZEL CSS ENJEKSİYONU (Kullanıcı Tema Seçimli)
+st.set_page_config(page_title="SPSS Yapay Zeka Asistanı | Veri Analizi", page_icon="📊", layout="wide")
+
+
 premium_css = """
 <style>
 /* Sadece en alttaki Streamlit reklamını gizle, üst menüyü (Header) kullanıcılara bırak */
@@ -48,23 +46,17 @@ html, body, [class*="css"]  {
 """
 st.markdown(premium_css, unsafe_allow_html=True)
 
-# ---------------------------------------------------------
-# 2. YAPAY ZEKA (GEMINI) AYARLARI
-# ---------------------------------------------------------
-# Kendi API anahtarını aşağıdaki tırnakların içine yapıştır:
-API_KEY = "AIzaSyAtPREU20lwGOdAa6GyLrTcPOIIr_ftCdM"
+
+API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
 
-# Sihirli Model Bulucu (Hataları Önler)
+
 try:
     uygun_modeller = [m.name for m in genai.list_models() if 'generateContent' in m.supported_generation_methods]
     model = genai.GenerativeModel(uygun_modeller[0])
 except Exception as e:
     st.error("API Anahtarı hatalı veya model bulunamadı. Lütfen API anahtarınızı kontrol edin.")
 
-# ---------------------------------------------------------
-# 3. YAN MENÜ (SIDEBAR) TASARIMI
-# ---------------------------------------------------------
 st.sidebar.image("logo.png", width=150)
 st.sidebar.title("Navigasyon")
 st.sidebar.markdown("Hangi işlemi yapmak istiyorsunuz?")
@@ -80,11 +72,7 @@ st.sidebar.markdown("**SPSS AI Asistan**")
 st.sidebar.caption("Sürüm: 1.0.0")
 st.sidebar.caption("Geliştirici: Şevin Baş")
 
-# ---------------------------------------------------------
-# 4. MODÜLLERİN İŞLEYİŞİ
-# ---------------------------------------------------------
 
-# MODÜL 1: Soru - Cevap Chatbot
 if secim == "💬 SPSS Rehberi & Soru-Cevap":
     st.title("💬 SPSS Rehberi ve Soru-Cevap")
     st.markdown("SPSS menüleri, analiz yöntemleri, regresyon veya veri madenciliği algoritmaları hakkında her şeyi sorabilirsiniz.")
@@ -100,7 +88,6 @@ if secim == "💬 SPSS Rehberi & Soru-Cevap":
         else:
             st.warning("Lütfen bir soru yazın.")
 
-# MODÜL 2: Veri Seti Yükleme
 elif secim == "📂 Veri Seti Analizi (.sav)":
     st.title("📂 Veri Seti Analizi")
     st.markdown("`.sav` formatındaki SPSS dosyanızı yükleyin ve asistanın verilerinizi incelemesini sağlayın.")
@@ -131,7 +118,6 @@ elif secim == "📂 Veri Seti Analizi (.sav)":
             else:
                 st.warning("Lütfen bir komut girin.")
 
-# MODÜL 3: Output Yorumlayıcı
 elif secim == "📈 Çıktı (Output) Yorumlayıcı":
     st.title("📈 Çıktı ve Tablo Yorumlayıcı")
     st.markdown("SPSS'ten aldığınız ANOVA, T-Testi, Regresyon veya Normallik testi Output tablolarını buraya yapıştırın.")
