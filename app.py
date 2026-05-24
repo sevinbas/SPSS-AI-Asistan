@@ -6,7 +6,7 @@ import pyreadstat
 # ---------------------------------------------------------
 # 1. SAYFA TASARIMI VE ARAYÜZ YAPILANDIRMASI
 # ---------------------------------------------------------
-st.set_page_config(page_title="SPSS AI Asistan", page_icon="📊", layout="wide")
+st.set_page_config(page_title="SPSS Yapay Zeka Asistanı | Veri Analizi", page_icon="📊", layout="wide")
 
 # ÖZEL CSS ENJEKSİYONU (Kullanıcı Tema Seçimli)
 premium_css = """
